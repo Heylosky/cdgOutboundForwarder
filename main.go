@@ -40,17 +40,18 @@ func Processor(c <-chan []byte, sentChan chan<- models.MbRc) {
 		urlMap := url.Values{}
 		urlMap.Add("payload", msg.Payload)
 
-		request, _ := http.NewRequest("POST", "http://127.0.0.1:8080/test", strings.NewReader(urlMap.Encode()))
+		request, _ := http.NewRequest("POST", "http://127.0.0.1:8081/test", strings.NewReader(urlMap.Encode()))
 		request.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 
 		res, err := client.Do(request)
 		if err != nil {
 			zap.L().Error("Client request err", zap.Error(err))
-		}
-		if res.StatusCode != 200 {
+		} else if res.StatusCode != 200 {
 			zap.L().Info("Failed to post message to customer api")
+			res.Body.Close()
+		} else {
+			res.Body.Close()
 		}
-		res.Body.Close()
 
 		sentChan <- msg
 	}

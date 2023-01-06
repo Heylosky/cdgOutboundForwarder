@@ -40,7 +40,7 @@ func Processor(c <-chan []byte, sentChan chan<- models.MbRc) {
 		urlMap := url.Values{}
 		urlMap.Add("payload", msg.Payload)
 
-		request, _ := http.NewRequest("POST", "http://127.0.0.1:8081/test", strings.NewReader(urlMap.Encode()))
+		request, _ := http.NewRequest("POST", "http://172.25.240.10:8081/test", strings.NewReader(urlMap.Encode()))
 		request.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 
 		res, err := client.Do(request)

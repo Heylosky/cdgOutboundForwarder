@@ -11,6 +11,6 @@ RUN go build -o outboundForwarder .
 
 FROM scratch
 COPY --from=builder /build/outboundForwarder /
-COPY --from=builder /build/outboundForwarder.log /
+COPY --from=builder /build/logs /
 
 ENTRYPOINT ["/outboundForwarder"]

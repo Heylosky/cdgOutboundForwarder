@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	logger.InitLogger("./outboundForwarder.log")
+	logger.InitLogger("./logs/outboundForwarder.log")
 	zap.L().Info("Outbound forwarder processor starting...")
 
 	waitSendChan := make(chan []byte)

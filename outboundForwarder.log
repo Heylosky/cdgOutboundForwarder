@@ -1,3 +1,0 @@
-{"level":"INFO","time":"2023-01-06T14:49:18.960+0800","caller":"outboundForwarder/main.go:17","msg":"Outbound forwarder processor starting..."}
-{"level":"PANIC","time":"2023-01-06T14:49:48.962+0800","caller":"messageQ/init.go:15","msg":"Failed to connect to RabbitMQ","error":"dial tcp 172.25.240.10:31656: i/o timeout"}
-{"level":"PANIC","time":"2023-01-06T14:49:48.962+0800","caller":"messageQ/init.go:15","msg":"Failed to connect to RabbitMQ","error":"dial tcp 172.25.240.10:31656: i/o timeout"}
